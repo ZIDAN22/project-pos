@@ -1,0 +1,2 @@
+- [x] Update toggle sidebar JavaScript in app.blade.php to hide/show .sidebar-text and #inventaris-submenu based on sidebar state
+- [x] Add initial check at the end of the script to hide texts and submenu if the sidebar starts closed
