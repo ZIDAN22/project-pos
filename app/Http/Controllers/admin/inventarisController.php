@@ -65,7 +65,7 @@ class inventarisController extends Controller
     }
     public function destroy(string $id)
     {
-        try {
+try {
             $inventaris = inventaris::findOrFail($id);
 
             // Optional: Check for related records to prevent accidental deletion
@@ -73,7 +73,7 @@ class inventarisController extends Controller
             // if ($inventaris->mutasiAssets()->exists() || $inventaris->disposalAssets()->exists()) {
             //     return redirect()->route('inventaris.index')->with('error', 'Tidak dapat menghapus inventaris yang memiliki catatan terkait.');
             // }
-
+        
             $inventaris->delete();
 
             return redirect()->route('inventaris.index')->with('success', 'Data Barang Berhasil Dihapus!');

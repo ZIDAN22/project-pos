@@ -17,9 +17,7 @@ Route::get('/', function () {
 // })->name('dashboard');
 
 
-Route::resource('/Register', App\Http\Controllers\RegisterController::class);
-
-
+Route::resource('/Register', App\Http\Controllers\RegisterController::class);   
 Route::resource('/dashboard', App\Http\Controllers\admin\DashboardController::class);
 Route::resource('/inventaris', App\Http\Controllers\admin\inventarisController::class);
 Route::middleware(['auth'])->group(function(){

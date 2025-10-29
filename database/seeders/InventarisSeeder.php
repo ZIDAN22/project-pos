@@ -27,8 +27,8 @@ class InventarisSeeder extends Seeder
         $inventarisData = [
             [
                 'kode_asset' => 'AST-001',
-                'nama_barang' => 'Komputer Desktop',
-                'tipe_barang' => 'komputer',
+                'nama_barang' => 'apalah',
+                'tipe_barang' => 'scanner',
                 'merk' => 'Dell',
                 'model' => 'OptiPlex 3080',
                 'serial_number' => 'SN123456789',
