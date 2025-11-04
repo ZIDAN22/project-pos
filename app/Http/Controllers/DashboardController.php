@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
 use App\Models\inventaris;
@@ -15,7 +15,7 @@ class DashboardController extends Controller
     public function index()
     {
         $a = inventaris::all();
-        return view('admin.dashboard');
+        return view('dashboard.admin');
     }
 
     /**

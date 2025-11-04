@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\inventaris;
@@ -12,7 +12,7 @@ class inventarisController extends Controller
     public function index(Request $request)
     {
         $inventaris = inventaris::with('lokasi')
-            ->when($request->filled('search'), fn($q) => $q->where('nama_barang', 'like', '%'.$request->search.'%'))
+            ->when($request->filled('search'), fn($q) => $q->where('nama_barang', 'like', '%' . $request->search . '%'))
             ->when($request->filled('tipe_barang'), fn($q) => $q->where('tipe_barang', $request->tipe_barang))
             ->when($request->filled('lokasi'), fn($q) => $q->where('lokasi_id', $request->lokasi))
             ->when($request->filled('status'), fn($q) => $q->where('status', $request->status))
@@ -54,26 +54,13 @@ class inventarisController extends Controller
         }
     }
 
-    public function show(string $id) {
-
-    }
-    public function edit(string $id) {
-
-    }
-    public function update(Request $request, string $id) {
-
-    }
+    public function show(string $id) {}
+    public function edit(string $id) {}
+    public function update(Request $request, string $id) {}
     public function destroy(string $id)
     {
-try {
+        try {
             $inventaris = inventaris::findOrFail($id);
-
-            // Optional: Check for related records to prevent accidental deletion
-            // Uncomment the following lines if you want to prevent deletion when related records exist
-            // if ($inventaris->mutasiAssets()->exists() || $inventaris->disposalAssets()->exists()) {
-            //     return redirect()->route('inventaris.index')->with('error', 'Tidak dapat menghapus inventaris yang memiliki catatan terkait.');
-            // }
-        
             $inventaris->delete();
 
             return redirect()->route('inventaris.index')->with('success', 'Data Barang Berhasil Dihapus!');
