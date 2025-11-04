@@ -2,16 +2,38 @@
     id="sidebar">
     <div class="p-4">
         <nav class="space-y-2">
-            <a href="{{route ('dashboard.index')}}"
-                class="flex items-center px-1 py-2 text-sm font-medium rounded-md hover:bg-gray-700 {{ request()->routeIs('dashboard.*') ? 'bg-gray-700' : '' }}">
-                <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2H5a2 2 0 00-2-2z"></path>
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M8 5a2 2 0 012-2h4a2 2 0 012 2v2H8V5z"></path>
-                </svg>
-                <span class="ml-3 sidebar-text">Dashboard</span>
-            </a>
+            @if(auth()->user()->isSupervisor())
+                <a href="{{ route('supervisor.dashboard') }}"
+                    class="flex items-center px-1 py-2 text-sm font-medium rounded-md hover:bg-gray-700 {{ request()->routeIs('supervisor.dashboard') ? 'bg-gray-700' : '' }}">
+                    <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2H5a2 2 0 00-2-2z"></path>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M8 5a2 2 0 012-2h4a2 2 0 012 2v2H8V5z"></path>
+                    </svg>
+                    <span class="ml-3 sidebar-text">Supervisor Dashboard</span>
+                </a>
+
+                <a href="{{ route('supervisor.users.index') }}"
+                    class="flex items-center px-1 py-2 text-sm font-medium rounded-md hover:bg-gray-700 {{ request()->routeIs('supervisor.users.*') ? 'bg-gray-700' : '' }}">
+                    <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197m13.5-9a2.5 2.5 0 11-5 0 2.5 2.5 0 015 0z"></path>
+                    </svg>
+                    <span class="ml-3 sidebar-text">User Management</span>
+                </a>
+            @else
+                <a href="{{route ('dashboard.index')}}"
+                    class="flex items-center px-1 py-2 text-sm font-medium rounded-md hover:bg-gray-700 {{ request()->routeIs('dashboard.*') ? 'bg-gray-700' : '' }}">
+                    <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2H5a2 2 0 00-2-2z"></path>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M8 5a2 2 0 012-2h4a2 2 0 012 2v2H8V5z"></path>
+                    </svg>
+                    <span class="ml-3 sidebar-text">Dashboard</span>
+                </a>
+            @endif
 
             <a href="{{route ('inventaris.index')}}"
                 class="flex items-center px-1 py-2 text-sm font-medium rounded-md hover:bg-gray-700 {{ request()->routeIs('inventaris.*') ? 'bg-gray-700' : '' }}">
@@ -72,19 +94,6 @@
                 </svg>
                 <span class="ml-3 sidebar-text">Profile</span>
             </a>
-
-            <form method="POST" action="" class="block">
-                @csrf
-                <button type="submit"
-                    class="flex items-center w-full px-1 py-2 text-sm font-medium rounded-md hover:bg-gray-700 text-left">
-                    <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1">
-                        </path>
-                    </svg>
-                    <span class="ml-3 sidebar-text">Logout</span>
-                </button>
-            </form>
         </nav>
     </div>
 </aside>
