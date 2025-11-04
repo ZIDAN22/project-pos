@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Register</title>
+    <title>Login</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
@@ -16,10 +16,10 @@
                 <img src="/images/POSIND_2023.png" alt="POSIND Logo" class="h-16 w-16 rounded-none">
             </div>
             <h2 class="text-4xl font-bold text-gray-900 mb-2">
-                lengkapi data anda
+                SELAMAT DATANG
             </h2>
             <p class="text-lg text-gray-600">
-                Buat Akun anda
+                MASUKAN AKUN MU UNTUK MENGAKSES
             </p>
         </div>
 
@@ -42,22 +42,10 @@
             </div>
         @endif
 
-        <form class="space-y-6" action="{{ route('register.store') }}" method="POST">
+        <form class="space-y-6" action="{{ route('login.store') }}" method="POST">
             @csrf
 
             <div class="space-y-4">
-                <div class="relative">
-                    <label for="nama" class="block text-sm font-medium text-gray-700 mb-1">Nama Lengkap</label>
-                    <div class="relative">
-                        <input id="nama" name="nama" type="text" value="{{ old('nama') }}" required
-                               class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 bg-gray-50 focus:bg-white"
-                               placeholder="Masukan Nama Lengkap">
-                        <svg class="absolute right-3 top-3.5 h-5 w-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
-                        </svg>
-                    </div>
-                </div>
-
                 <div class="relative">
                     <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Alamat Email</label>
                     <div class="relative">
@@ -75,21 +63,9 @@
                     <div class="relative">
                         <input id="password" name="password" type="password" required
                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 bg-gray-50 focus:bg-white"
-                               placeholder="Buat Password">
+                               placeholder="Masukin password">
                         <svg class="absolute right-3 top-3.5 h-5 w-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
-                        </svg>
-                    </div>
-                </div>
-
-                <div class="relative">
-                    <label for="password_confirmation" class="block text-sm font-medium text-gray-700 mb-1">Konfirmasi Password</label>
-                    <div class="relative">
-                        <input id="password_confirmation" name="password_confirmation" type="password" required
-                               class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 bg-gray-50 focus:bg-white"
-                               placeholder="Konfirmasi password mu">
-                        <svg class="absolute right-3 top-3.5 h-5 w-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                         </svg>
                     </div>
                 </div>
@@ -102,15 +78,15 @@
                         <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
                         <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                     </svg>
-                    Buat Akun
+                    Sebelum masuk baca bismillah
                 </button>
             </div>
 
             <div class="text-center">
                 <p class="text-sm text-gray-600">
-                    Sudah Memiliki Akun?
-                    <a href="{{ route('login') }}" class="font-medium text-indigo-600 hover:text-indigo-500 transition-colors duration-200">
-                        Masuk di sini
+                    Tidak Punya Akun?
+                    <a href="{{ route('register.index') }}" class="font-medium text-indigo-600 hover:text-indigo-500 transition-colors duration-200">
+                        Daftar disini
                     </a>
                 </p>
             </div>

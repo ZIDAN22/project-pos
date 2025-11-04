@@ -29,8 +29,20 @@ class RegisterController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'nama' => ' required|255max',
+            'nama' => 'required|max:255',
+            'email' => 'required|email|unique:users,email',
+            'password' => 'required|min:8|confirmed',
         ]);
+
+        // Create the user
+        \App\Models\User::create([
+            'name' => $validated['nama'],
+            'email' => $validated['email'],
+            'password' => \Illuminate\Support\Facades\Hash::make($validated['password']),
+        ]);
+
+        // Redirect to login or dashboard
+        return redirect()->route('login')->with('success', 'Registration successful! Please log in.');
     }
 
     /**

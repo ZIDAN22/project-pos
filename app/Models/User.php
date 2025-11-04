@@ -55,7 +55,7 @@ class User extends Authenticatable
     }
 
     /* ==================================================
-     | ✅ Cek Role User (untuk akses admin atau IT Support)
+     | ✅ Cek Role User (untuk akses admin, IT Support, atau Supervisor)
      ===================================================*/
     public function isAdmin()
     {
@@ -65,6 +65,11 @@ class User extends Authenticatable
     public function isITSupport()
     {
         return $this->role === 'it_support';
+    }
+
+    public function isSupervisor()
+    {
+        return $this->role === 'supervisor';
     }
 
     /**

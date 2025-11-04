@@ -21,7 +21,7 @@
                     <button
                         class="text-gray-700 hover:bg-gray-100 px-3 py-2 rounded-md text-sm font-medium flex items-center"
                         id="user-menu-button">
-                        <span>{{ Auth::user()->name ?? 'User' }}</span>
+                        <span>{{ Auth::user()->name ?? 'User' }} ({{ ucfirst(Auth::user()->role ?? '') }})</span>
                         <svg class="ml-1 h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7">
                             </path>
@@ -31,7 +31,7 @@
                         <a href="" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Profile</a>
                         <a href="" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
                             onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
-                        <form id="logout-form" action="" method="POST" class="hidden">
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="hidden">
                             @csrf
                         </form>
                     </div>
