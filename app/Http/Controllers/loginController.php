@@ -12,12 +12,9 @@ class LoginController extends Controller
      */
     public function index()
     {
-        return view('admin.login');
+        return view('login');
     }
 
-    /**
-     * Handle the login request.
-     */
     public function store(Request $request)
     {
         $credentials = $request->validate([
@@ -41,9 +38,9 @@ class LoginController extends Controller
         ])->onlyInput('email');
     }
 
-    /**
-     * Handle the logout request.
-     */
+
+
+    
     public function destroy(Request $request)
     {
         Auth::logout();

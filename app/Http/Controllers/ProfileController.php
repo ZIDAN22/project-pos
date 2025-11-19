@@ -22,7 +22,13 @@ class ProfileController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        
+        $validated = $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|unique:users,email',
+            'password' => 'require|min:8|confirmed'
+        ]);
+
+        $updated = User::
     }
 
     /**

@@ -1,3 +1,0 @@
-- [x] Create custom README.md with project description, features, installation steps (including cloning from GitHub), usage, and other sections.
-- [x] Overwrite the existing README.md with the new content.
-- [x] Verify the README.md content for accuracy.

@@ -20,21 +20,15 @@ Route::get('/login', [App\Http\Controllers\LoginController::class, 'index'])->na
 Route::post('/login', [App\Http\Controllers\LoginController::class, 'store'])->name('login.store');
 Route::post('/logout', [App\Http\Controllers\LoginController::class, 'destroy'])->name('logout');
 
-<<<<<<< HEAD
-Route::resource('/Register', App\Http\Controllers\RegisterController::class);   
-Route::resource('/dashboard', App\Http\Controllers\Dashboard\DashboardController::class);
-Route::resource('/inventaris', App\Http\Controllers\admin\inventarisController::class);
-=======
+
 Route::resource('/Register', App\Http\Controllers\RegisterController::class)->names([
     'index' => 'register.index',
     'store' => 'register.store',
 ]);
 
-
->>>>>>> acf2fa6c6c8da04468b07440f8a45f6b35040bcc
 Route::middleware(['auth'])->group(function(){
     Route::resource('/dashboard', App\Http\Controllers\admin\DashboardController::class);
-    Route::resource('/inventaris', App\Http\Controllers\admin\inventarisController::class);
+    Route::resource('/inventaris', App\Http\Controllers\inventarisController::class);
 });
 
 Route::middleware(['auth', 'supervisor'])->group(function(){

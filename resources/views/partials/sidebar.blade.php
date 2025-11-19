@@ -2,7 +2,7 @@
     id="sidebar">
     <div class="p-4">
         <nav class="space-y-2">
-            @if(auth()->user()->isSupervisor())
+            @if(auth()->check() && auth()->user()->isSupervisor())
                 <a href="{{ route('supervisor.dashboard') }}"
                     class="flex items-center px-1 py-2 text-sm font-medium rounded-md hover:bg-gray-700 {{ request()->routeIs('supervisor.dashboard') ? 'bg-gray-700' : '' }}">
                     <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
